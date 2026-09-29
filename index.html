@@ -49,7 +49,7 @@
             padding: 30px;
             margin-bottom: 25px;
             border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
         h2 {
@@ -59,8 +59,7 @@
         }
 
         h3 {
-            margin-top: 20px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #333;
         }
 
@@ -76,11 +75,72 @@
             margin-bottom: 8px;
         }
 
-        .proyecto {
+
+        /* TARJETAS DE PROYECTOS */
+
+        .proyectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 22px;
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .tarjeta h3 {
+            color: #123b5d;
+            font-size: 21px;
+        }
+
+        .tarjeta p {
+            font-size: 15px;
+        }
+
+        .tipo-proyecto {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: #123b5d;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 7px;
+            text-align: center;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .boton:hover {
+            background-color: #0d2d46;
+        }
+
+
+        /* EXPERIENCIA PRÁCTICA */
+
+        .experiencia {
             border-left: 4px solid #123b5d;
             padding-left: 18px;
-            margin-bottom: 25px;
         }
+
+
+        /* PIE DE PÁGINA */
 
         footer {
             text-align: center;
@@ -89,10 +149,14 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
+
+
+    <!-- ENCABEZADO -->
 
     <header>
 
@@ -102,7 +166,12 @@
             Estudiante de Tecnicatura Universitaria en Informática Aplicada a la Salud
         </p>
 
+        <p>
+            Portfolio académico y profesional
+        </p>
+
     </header>
+
 
 
     <main>
@@ -185,125 +254,160 @@
 
 
 
-        <!-- PROYECTOS -->
+        <!-- PROYECTOS ACADÉMICOS -->
 
         <section>
 
             <h2>Proyectos académicos</h2>
 
+            <div class="proyectos">
 
-            <div class="proyecto">
 
-                <h3>Alerta Cangrejo</h3>
+                <!-- PROYECTO 1 -->
 
-                <p>
-                    Desarrollo de una aplicación orientada a la prevención
-                    y concientización sobre el cáncer.
-                </p>
+                <div class="tarjeta">
 
-                <p>
-                    <strong>Área:</strong> Desarrollo de aplicaciones
-                </p>
+                    <div>
 
-                <p>
-                    <strong>Modalidad:</strong> Proyecto grupal
-                </p>
+                        <h3>Alerta Cangrejo</h3>
+
+                        <p>
+                            Desarrollo de una aplicación orientada a la prevención
+                            y concientización sobre el cáncer.
+                        </p>
+
+                        <p class="tipo-proyecto">
+                            Proyecto grupal · Desarrollo de aplicaciones
+                        </p>
+
+                    </div>
+
+                    <a href="alerta-cangrejo.html" class="boton">
+                        Ver proyecto
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROYECTO 2 -->
+
+                <div class="tarjeta">
+
+                    <div>
+
+                        <h3>
+                            Diagnóstico de situación —
+                            Hospital Vicente López y Planes
+                        </h3>
+
+                        <p>
+                            Análisis de una situación dentro de una institución
+                            de salud e identificación de problemáticas.
+                        </p>
+
+                        <p class="tipo-proyecto">
+                            Proyecto grupal · Sistemas y gestión en salud
+                        </p>
+
+                    </div>
+
+                    <a href="diagnostico-hospital.html" class="boton">
+                        Ver proyecto
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROYECTO 3 -->
+
+                <div class="tarjeta">
+
+                    <div>
+
+                        <h3>
+                            Resolución de una problemática de
+                            interoperabilidad en un SIS
+                        </h3>
+
+                        <p>
+                            Análisis y resolución de una problemática relacionada
+                            con la interoperabilidad entre sistemas de información
+                            en salud.
+                        </p>
+
+                        <p class="tipo-proyecto">
+                            Proyecto grupal · Sistemas de Información en Salud
+                        </p>
+
+                    </div>
+
+                    <a href="interoperabilidad.html" class="boton">
+                        Ver proyecto
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROYECTO 4 -->
+
+                <div class="tarjeta">
+
+                    <div>
+
+                        <h3>
+                            La importancia de la vacunación
+                            en la lucha contra enfermedades reemergentes
+                        </h3>
+
+                        <p>
+                            Proyecto académico relacionado con la prevención,
+                            vacunación y salud pública.
+                        </p>
+
+                        <p class="tipo-proyecto">
+                            Proyecto grupal · Salud pública
+                        </p>
+
+                    </div>
+
+                    <a href="vacunacion.html" class="boton">
+                        Ver proyecto
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROYECTO 5 -->
+
+                <div class="tarjeta">
+
+                    <div>
+
+                        <h3>Prueba piloto de HSI</h3>
+
+                        <p>
+                            Trabajo académico basado en una prueba piloto de un
+                            Sistema de Información en Salud.
+                        </p>
+
+                        <p class="tipo-proyecto">
+                            Proyecto grupal · Sistemas de Información en Salud
+                        </p>
+
+                    </div>
+
+                    <a href="prueba-hsi.html" class="boton">
+                        Ver proyecto
+                    </a>
+
+                </div>
+
 
             </div>
-
-
-
-            <div class="proyecto">
-
-                <h3>
-                    Diagnóstico de situación — Hospital Vicente López y Planes
-                </h3>
-
-                <p>
-                    Análisis de una situación dentro de una institución de salud
-                    e identificación de problemáticas.
-                </p>
-
-                <p>
-                    <strong>Área:</strong> Sistemas y gestión en salud
-                </p>
-
-                <p>
-                    <strong>Modalidad:</strong> Proyecto grupal
-                </p>
-
-            </div>
-
-
-
-            <div class="proyecto">
-
-                <h3>
-                    Resolución de una problemática de interoperabilidad
-                    en un Sistema de Información en Salud
-                </h3>
-
-                <p>
-                    Análisis y resolución de una problemática relacionada
-                    con la interoperabilidad entre sistemas de información
-                    en salud.
-                </p>
-
-                <p>
-                    <strong>Área:</strong> Sistemas de Información en Salud
-                </p>
-
-                <p>
-                    <strong>Modalidad:</strong> Proyecto grupal
-                </p>
-
-            </div>
-
-
-
-            <div class="proyecto">
-
-                <h3>
-                    La importancia de la vacunación en la lucha contra
-                    enfermedades reemergentes
-                </h3>
-
-                <p>
-                    Proyecto académico relacionado con la prevención,
-                    vacunación y salud pública.
-                </p>
-
-                <p>
-                    <strong>Área:</strong> Salud pública
-                </p>
-
-                <p>
-                    <strong>Modalidad:</strong> Proyecto grupal
-                </p>
-
-            </div>
-
-
-
-            <div class="proyecto">
-
-                <h3>Prueba piloto de HSI</h3>
-
-                <p>
-                    Trabajo académico basado en una prueba piloto de un
-                    Sistema de Información en Salud (HSI).
-                </p>
-
-                <p>
-                    <strong>Área:</strong> Sistemas de Información en Salud
-                </p>
-
-                <p>
-                    <strong>Modalidad:</strong> Proyecto grupal
-                </p>
-
-            </div>
-
 
         </section>
 
@@ -315,8 +419,7 @@
 
             <h2>Experiencia práctica</h2>
 
-
-            <div class="proyecto">
+            <div class="experiencia">
 
                 <h3>Prácticas con HSI</h3>
 
@@ -332,7 +435,6 @@
                 </p>
 
             </div>
-
 
         </section>
 
@@ -358,6 +460,8 @@
     </main>
 
 
+
+    <!-- PIE DE PÁGINA -->
 
     <footer>
 
