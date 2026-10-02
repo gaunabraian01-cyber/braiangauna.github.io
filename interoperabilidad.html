@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interoperabilidad en un SIS | Braian Gauna</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #1f4e79;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #1f4e79;
+        }
+
+        .dato {
+            margin-bottom: 15px;
+        }
+
+        .archivo {
+            display: inline-block;
+            padding: 12px 18px;
+            background-color: #1f4e79;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .archivo:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Resolución de una problemática de interoperabilidad en un SIS</h1>
+    <p>Segundo parcial | Redes y Sistemas de Información en Salud | 2025</p>
+</header>
+
+<main>
+
+    <section>
+        <h2>Descripción del proyecto</h2>
+
+        <p>
+            Este proyecto fue realizado como parte del segundo parcial de la
+            materia Redes y Sistemas de Información en Salud. La actividad
+            consistió en analizar una problemática específica relacionada con
+            la interoperabilidad de un Sistema de Información en Salud (SIS)
+            y diseñar una posible solución.
+        </p>
+
+        <p>
+            El trabajo fue realizado por el Grupo 6, integrado por Lautaro
+            Leyes, Thiago Gonzalez, Braian Gauna y Mariela García Caldas.
+            El equipo trabajó desde el rol de analistas funcionales,
+            relacionando las necesidades de los usuarios con una posible
+            solución técnica.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>Problema planteado</h2>
+
+        <p>
+            El problema se relacionaba con el registro de efectos adversos
+            en pacientes que reciben quimioterapia. Los profesionales podían
+            registrar un mismo efecto utilizando diferentes expresiones, como
+            "mareos", "náusea" o "bajó defensas".
+        </p>
+
+        <p>
+            Al utilizar lenguaje libre y no estandarizado, el sistema no podía
+            reconocer automáticamente que distintas expresiones podían
+            representar el mismo concepto clínico, como la neutropenia.
+        </p>
+
+        <p>
+            Esto hacía necesario que los analistas interpretaran los registros
+            manualmente para poder identificar y contabilizar los casos,
+            generando duplicación de tareas, mayor tiempo de procesamiento y
+            posibilidades de error.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>Solución propuesta</h2>
+
+        <p>
+            La propuesta buscó eliminar la ambigüedad semántica mediante el
+            registro estructurado de los efectos adversos y su codificación
+            utilizando SNOMED CT.
+        </p>
+
+        <p>
+            De esta manera, un mismo concepto clínico podría ser identificado
+            aunque la información ingresada por los profesionales tuviera
+            diferentes expresiones.
+        </p>
+
+        <p>
+            La solución permitiría utilizar posteriormente esos datos para
+            realizar búsquedas, generar reportes y analizar la información
+            clínica sin depender de una interpretación manual.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>Estándares utilizados</h2>
+
+        <div class="dato">
+            <strong>FHIR:</strong>
+            utilizado como estándar para el intercambio de información
+            clínica entre sistemas.
+        </div>
+
+        <div class="dato">
+            <strong>SNOMED CT:</strong>
+            utilizado para representar y codificar los conceptos clínicos
+            de manera estandarizada.
+        </div>
+    </section>
+
+
+    <section>
+        <h2>Solución técnica</h2>
+
+        <p>
+            La propuesta planteó registrar los efectos adversos mediante
+            información estructurada y codificada con SNOMED CT, utilizando
+            FHIR para el intercambio de los datos.
+        </p>
+
+        <p>
+            A partir de esta estructura, otros sistemas podrían consultar
+            la información mediante una API REST y obtener los pacientes
+            que presentaran determinados efectos adversos.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>Roadmap</h2>
+
+        <p>
+            La propuesta se organizó en diferentes fases:
+        </p>
+
+        <div class="dato">
+            <strong>Fase 1 — Análisis y diseño:</strong>
+            análisis de los registros actuales y diseño de la solución con
+            FHIR y SNOMED CT.
+        </div>
+
+        <div class="dato">
+            <strong>Fase 2 — Desarrollo y pruebas:</strong>
+            construcción y prueba del perfil FHIR y de los ValueSets
+            relacionados con los efectos adversos.
+        </div>
+
+        <div class="dato">
+            <strong>Fase 3 — Implementación piloto:</strong>
+            aplicación de la propuesta en un hospital para realizar pruebas
+            de registro y búsqueda de información.
+        </div>
+
+        <div class="dato">
+            <strong>Fase 4 — Rollout y soporte:</strong>
+            extensión de la solución a los servicios del hospital y
+            mantenimiento de los perfiles implementados.
+        </div>
+    </section>
+
+
+    <section>
+        <h2>Trabajo en equipo</h2>
+
+        <p>
+            El proyecto fue realizado de manera grupal. El equipo analizó el
+            problema planteado, desarrolló una propuesta de solución y
+            organizó sus componentes en diagnóstico, solución conceptual,
+            solución técnica y roadmap.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>Mi participación</h2>
+
+        <p>
+            Formé parte del Grupo 6 y participé en el análisis y resolución
+            de la problemática planteada, trabajando junto con el resto del
+            equipo en el desarrollo de la propuesta de interoperabilidad.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>Documentación del proyecto</h2>
+
+        <p>
+            El trabajo completo se encuentra disponible en el documento
+            correspondiente al segundo parcial.
+        </p>
+
+        <p>
+            Este proyecto corresponde a una propuesta académica de solución
+            y no a una implementación real del sistema.
+        </p>
+    </section>
+
+</main>
+
+</body>
+</html>
