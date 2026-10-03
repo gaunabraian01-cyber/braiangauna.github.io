@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Portfolio | Braian Nicolás Gauna</title>
+    
+    <!-- Fuente moderna Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -16,468 +19,327 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #222;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
             line-height: 1.6;
         }
 
+        /* ENCABEZADO CON DEGRADADO MODERNO */
         header {
-            background-color: #123b5d;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
             text-align: center;
-            padding: 70px 20px;
+            padding: 80px 20px 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 20px;
-        }
-
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        h2 {
-            color: #123b5d;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-
-        h3 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        p {
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
-        ul {
-            padding-left: 25px;
-        }
-
-        li {
+        header .subtitulo {
+            font-size: 1.25rem;
+            color: #38bdf8;
+            font-weight: 500;
             margin-bottom: 8px;
         }
 
+        header .bajada {
+            font-size: 1rem;
+            color: #94a3b8;
+        }
 
-        /* TARJETAS DE PROYECTOS */
+        /* CONTENEDOR PRINCIPAL */
+        main {
+            max-width: 1000px;
+            margin: -30px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
 
+        /* SECCIONES ESTILO CARDS */
+        section {
+            background-color: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #1e3a8a;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        /* ETIQUETAS Y LISTAS */
+        ul.tags {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        ul.tags li {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #dbeafe;
+        }
+
+        /* TARJETAS DE PROYECTOS (GRID MODERNO) */
         .proyectos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 10px;
         }
 
         .tarjeta {
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 22px;
-            background-color: #fafafa;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 24px;
+            background-color: #ffffff;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.25s ease;
         }
 
         .tarjeta:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
         }
 
         .tarjeta h3 {
-            color: #123b5d;
-            font-size: 21px;
+            color: #0f172a;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .tarjeta p {
-            font-size: 15px;
+            font-size: 0.95rem;
+            color: #64748b;
         }
 
         .tipo-proyecto {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
+            font-size: 0.825rem !important;
+            font-weight: 600;
+            color: #0284c7 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
         }
 
+        /* BOTONES ELEGANTES */
         .boton {
             display: inline-block;
-            background-color: #123b5d;
+            background-color: #0f172a;
             color: white;
             text-decoration: none;
-            padding: 10px 16px;
-            border-radius: 7px;
+            padding: 10px 18px;
+            border-radius: 8px;
             text-align: center;
-            margin-top: 10px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-top: 15px;
             transition: background-color 0.2s;
         }
 
         .boton:hover {
-            background-color: #0d2d46;
+            background-color: #2563eb;
         }
 
-
-        /* EXPERIENCIA PRÁCTICA */
-
-        .experiencia {
-            border-left: 4px solid #123b5d;
-            padding-left: 18px;
+        /* ENLACES DE CONTACTO */
+        .contacto-item {
+            margin-bottom: 12px;
+            font-size: 1rem;
         }
 
+        .contacto-item a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-        /* PIE DE PÁGINA */
+        .contacto-item a:hover {
+            text-decoration: underline;
+        }
 
+        /* FOOTER */
         footer {
             text-align: center;
-            padding: 30px;
-            color: #666;
+            padding: 40px 20px;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
     <!-- ENCABEZADO -->
-
     <header>
-
         <h1>Braian Nicolás Gauna</h1>
-
-        <p>
-            Estudiante de Tecnicatura Universitaria en Informática Aplicada a la Salud
-        </p>
-
-        <p>
-            Portfolio académico y profesional
-        </p>
-
+        <p class="subtitulo">Tecnicatura Universitaria en Informática Aplicada a la Salud</p>
+        <p class="bajada">UNPAZ · Portfolio académico y profesional</p>
     </header>
-
-
 
     <main>
 
-
         <!-- SOBRE MÍ -->
-
         <section>
-
             <h2>Sobre mí</h2>
-
             <p>
-                Soy estudiante de la Tecnicatura Universitaria en Informática
-                Aplicada a la Salud en la UNPAZ.
+                Soy estudiante de la Tecnicatura Universitaria en Informática Aplicada a la Salud en la Universidad Nacional de José C. Paz (UNPAZ).
             </p>
-
             <p>
-                Me interesa la tecnología, los Sistemas de Información en Salud
-                y el desarrollo de soluciones aplicadas al ámbito sanitario.
+                Me apasiona la integración entre la tecnología y la salud pública, con enfoque en Sistemas de Información en Salud (SIS), interoperabilidad y optimización de procesos asistenciales mediante soluciones digitales.
             </p>
-
             <p>
-                Durante mi formación participé en diferentes proyectos académicos
-                realizados de manera grupal, desarrollando conocimientos en
-                tecnología, análisis de problemáticas, sistemas de información
-                y trabajo colaborativo.
+                A lo largo de mi formación, he liderado y participado en diversos proyectos académicos interdisciplinarios orientados al análisis institucional, desarrollo de software sanitario y planificación de proyectos digitales.
             </p>
-
         </section>
-
-
 
         <!-- FORMACIÓN -->
-
         <section>
-
             <h2>Formación</h2>
-
-            <h3>Universidad Nacional de José C. Paz</h3>
-
-            <p>
-                Tecnicatura Universitaria en Informática Aplicada a la Salud
-            </p>
-
-            <p>
-                2023 - Actualidad
-            </p>
-
+            <h3>Universidad Nacional de José C. Paz (UNPAZ)</h3>
+            <p><strong>Carrera:</strong> Tecnicatura Universitaria en Informática Aplicada a la Salud</p>
+            <p><strong>Estado:</strong> 2023 - En curso</p>
         </section>
-
-
 
         <!-- HABILIDADES -->
-
         <section>
-
-            <h2>Habilidades</h2>
-
-            <ul>
-
-                <li>Informática aplicada a la salud</li>
-
-                <li>Sistemas de Información en Salud</li>
-
+            <h2>Habilidades Técnicas y Competencias</h2>
+            <ul class="tags">
+                <li>Sistemas de Información en Salud (HSI)</li>
                 <li>Interoperabilidad</li>
-
-                <li>Programación</li>
-
-                <li>Trabajo en equipo</li>
-
-                <li>Investigación y análisis</li>
-
-                <li>Resolución de problemas</li>
-
-                <li>Organización de tareas</li>
-
+                <li>Informática Aplicada a la Salud</li>
+                <li>Programación (Python)</li>
+                <li>Gestión y Análisis de Datos</li>
+                <li>Trabajo en Equipo</li>
+                <li>Resolución de Problemas</li>
+                <li>Gestión de Proyectos Digitales</li>
             </ul>
-
         </section>
 
-
-
         <!-- PROYECTOS ACADÉMICOS -->
-
         <section>
-
-            <h2>Proyectos académicos</h2>
+            <h2>Proyectos Académicos</h2>
 
             <div class="proyectos">
 
-
                 <!-- PROYECTO 1 -->
-
                 <div class="tarjeta">
-
                     <div>
-
+                        <p class="tipo-proyecto">Desarrollo de Aplicaciones</p>
                         <h3>Alerta Cangrejo</h3>
-
-                        <p>
-                            Desarrollo de una aplicación orientada a la prevención
-                            y concientización sobre el cáncer.
-                        </p>
-
-                        <p class="tipo-proyecto">
-                            Proyecto grupal · Desarrollo de aplicaciones
-                        </p>
-
+                        <p>Desarrollo de una solución digital orientada a la prevención y concientización sobre el cáncer.</p>
                     </div>
-
-                    <a href="alerta-cangrejo.html" class="boton">
-                        Ver proyecto
-                    </a>
-
+                    <a href="alerta-cangrejo.html" class="boton">Ver proyecto →</a>
                 </div>
-
-
 
                 <!-- PROYECTO 2 -->
-
                 <div class="tarjeta">
-
                     <div>
-
-                        <h3>
-                            Diagnóstico de situación —
-                            Hospital Vicente López y Planes
-                        </h3>
-
-                        <p>
-                            Análisis de una situación dentro de una institución
-                            de salud e identificación de problemáticas.
-                        </p>
-
-                        <p class="tipo-proyecto">
-                            Proyecto grupal · Sistemas y gestión en salud
-                        </p>
-
+                        <p class="tipo-proyecto">Sistemas y Gestión en Salud</p>
+                        <h3>Diagnóstico de Situación — Hospital Vicente López y Planes</h3>
+                        <p>Análisis integral de procesos e identificación de problemáticas institucionales dentro de un entorno hospitalario.</p>
                     </div>
-
-                    <a href="diagnostico-hospital.html" class="boton">
-                        Ver proyecto
-                    </a>
-
+                    <a href="diagnostico-hospital.html" class="boton">Ver proyecto →</a>
                 </div>
-
-
 
                 <!-- PROYECTO 3 -->
-
                 <div class="tarjeta">
-
                     <div>
-
-                        <h3>
-                            Resolución de una problemática de
-                            interoperabilidad en un SIS
-                        </h3>
-
-                        <p>
-                            Análisis y resolución de una problemática relacionada
-                            con la interoperabilidad entre sistemas de información
-                            en salud.
-                        </p>
-
-                        <p class="tipo-proyecto">
-                            Proyecto grupal · Sistemas de Información en Salud
-                        </p>
-
+                        <p class="tipo-proyecto">Sistemas de Información</p>
+                        <h3>Interoperabilidad en Sistemas de Información en Salud</h3>
+                        <p>Análisis técnico y propuesta de resolución para problemas de comunicación e intercambio de datos entre SIS.</p>
                     </div>
-
-                    <a href="interoperabilidad.html" class="boton">
-                        Ver proyecto
-                    </a>
-
+                    <a href="interoperabilidad.html" class="boton">Ver proyecto →</a>
                 </div>
-
-
 
                 <!-- PROYECTO 4 -->
-
                 <div class="tarjeta">
-
                     <div>
-
-                        <h3>
-                            La importancia de la vacunación
-                            en la lucha contra enfermedades reemergentes
-                        </h3>
-
-                        <p>
-                            Proyecto académico relacionado con la prevención,
-                            vacunación y salud pública.
-                        </p>
-
-                        <p class="tipo-proyecto">
-                            Proyecto grupal · Salud pública
-                        </p>
-
+                        <p class="tipo-proyecto">Salud Pública</p>
+                        <h3>La importancia de la vacunación contra enfermedades reemergentes</h3>
+                        <p>Investigación académica sobre estrategias de inmunización, prevención y cobertura en salud pública.</p>
                     </div>
-
-                    <a href="vacunacion.html" class="boton">
-                        Ver proyecto
-                    </a>
-
+                    <a href="vacunacion.html" class="boton">Ver proyecto →</a>
                 </div>
 
-
-
-              <!-- PROYECTO 5 -->
-
+                <!-- PROYECTO 5 -->
                 <div class="tarjeta">
-
                     <div>
-
-                        <h3>Prueba piloto de HSI</h3>
-
-                        <p>
-                            Trabajo académico basado en una prueba piloto de un
-                            Sistema de Información en Salud.
-                        </p>
-
-                        <p class="tipo-proyecto">
-                            Proyecto grupal · Sistemas de Información en Salud
-                        </p>
-
+                        <p class="tipo-proyecto">Implementación SIS</p>
+                        <h3>Prueba piloto de HSI: Oficina de Salud Digital</h3>
+                        <p>Planificación, configuración y prueba piloto del módulo de dispensación de medicamentos e insumos en el Hospital 7.</p>
                     </div>
-
-                    <a href="prueba-hsi.html" class="boton">
-    Ver proyecto
-</a>
-
+                    <a href="prueba-hsi.html" class="boton">Ver proyecto →</a>
                 </div>
-
 
             </div>
-
         </section>
-
-
 
         <!-- EXPERIENCIA PRÁCTICA -->
-
         <section>
-
-            <h2>Experiencia práctica</h2>
-
-            <div class="experiencia">
-
-                <h3>Prácticas con HSI</h3>
-
-                <p>
-                    Experiencia práctica académica utilizando un entorno
-                    de Sistema de Información en Salud.
-                </p>
-
-                <p>
-                    Estas prácticas permitieron conocer y aplicar procesos
-                    relacionados con la gestión de información dentro de
-                    un sistema de salud.
-                </p>
-
-            </div>
-
+            <h2>Experiencia Práctica</h2>
+            <h3>Simulación e Implementación con HSI</h3>
+            <p>
+                Prácticas aplicadas sobre entornos reales y simulados de Sistemas de Información en Salud (HSI), desarrollando configuraciones de agendas, vademécum, perfiles de usuario y circuitos de dispensación de medicamentos.
+            </p>
         </section>
 
-
-
-       <!-- CONTACTO -->
-
+        <!-- CONTACTO -->
         <section>
-
             <h2>Contacto</h2>
-
-            <p>
+            <div class="contacto-item">
                 <strong>LinkedIn:</strong> 
-                <a href="https://www.linkedin.com/in/braian-gauna-a5106a165/" target="_blank">
-                    linkedin.com/in/braian-gauna-a5106a165
-                </a>
-            </p>
-
-            <p>
+                <a href="https://www.linkedin.com/in/braian-gauna-a5106a165/" target="_blank">linkedin.com/in/braian-gauna-a5106a165</a>
+            </div>
+            <div class="contacto-item">
                 <strong>Email:</strong> 
-                <a href="mailto:gaunabraian01@gmail.com">
-                    gaunabraian01@gmail.com
-                </a>
-            </p>
-
+                <a href="mailto:gaunabraian01@gmail.com">gaunabraian01@gmail.com</a>
+            </div>
         </section>
-
 
     </main>
 
-
-
-    <!-- PIE DE PÁGINA -->
-
+    <!-- FOOTER -->
     <footer>
-
-        <p>
-            Portfolio académico — Braian Nicolás Gauna
-        </p>
-
+        <p>© Portfolio Profesional — Braian Nicolás Gauna</p>
     </footer>
 
-
 </body>
-
 </html>
