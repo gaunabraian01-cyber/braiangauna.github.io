@@ -1,177 +1,339 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba piloto de HSI | Braian Gauna</title>
+
+    <title>Prueba piloto de HSI | Portfolio</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f9;
-            color: #333;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
             line-height: 1.6;
         }
 
+        /* BANNER SUPERIOR DE IMPACTO */
         header {
-            background-color: #1f4e79;
+            background: radial-gradient(circle at top left, #1e293b, #0f172a);
             color: white;
-            padding: 40px 20px;
             text-align: center;
+            padding: 80px 20px 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        header .badge-categoria {
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.2rem;
-        }
-
-        header p {
-            margin: 0;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        main {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        header .subtitulo {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            font-weight: 500;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* CONTENEDOR PRINCIPAL FLOTANTE */
+        main {
+            max-width: 980px;
+            margin: -35px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* BOTÓN VOLVER */
+        .volver {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 22px;
+            background: #ffffff;
+            padding: 10px 18px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .volver:hover {
+            background: #e0f2fe;
+            transform: translateX(-3px);
+        }
+
+        /* TARJETAS CONTENEDORAS */
         section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: #ffffff;
+            padding: 35px 40px;
+            margin-bottom: 28px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 25px 20px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
         }
 
         h2 {
-            color: #1f4e79;
-            margin-top: 0;
-            border-bottom: 2px solid #eef2f5;
-            padding-bottom: 10px;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .lista-datos, .lista-equipo {
-            list-style: none;
-            padding-left: 0;
-            margin: 15px 0;
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 22px;
+            background: linear-gradient(180deg, #0284c7, #06b6d4);
+            border-radius: 10px;
         }
 
-        .lista-datos li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-        }
-
-        .lista-datos li::before {
-            content: "•";
-            color: #1f4e79;
-            font-weight: bold;
-            font-size: 1.2rem;
-            position: absolute;
-            left: 0;
-            top: -2px;
-        }
-
-        .lista-equipo li {
+        p {
+            color: #475569;
             margin-bottom: 12px;
+            font-size: 1rem;
         }
 
-        .referentes {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #ccc;
+        /* CAJAS DESTACADAS Y DATOS */
+        .dato {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0284c7;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 0.98rem;
+            color: #334155;
+        }
+
+        .dato strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .referentes-card {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            color: #0369a1;
+            font-size: 0.95rem;
+        }
+
+        .referentes-card strong {
+            color: #0c4a6e;
+        }
+
+        /* BOTONES DE ARCHIVOS / DESCARGA */
+        .contenedor-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 15px;
         }
 
         .archivo {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: #1f4e79;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.2s ease;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+            transition: all 0.25s ease;
         }
 
-        .archivo:hover, .archivo:focus {
-            background-color: #163857;
-            outline: none;
+        .archivo:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px 50px;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Prueba piloto de HSI: Oficina de Salud Digital</h1>
-    <p>Proyecto académico · Hospital 7 (General Rodríguez)</p>
-</header>
+    <!-- ENCABEZADO -->
+    <header>
+        <span class="badge-categoria">Implementación de SIS</span>
+        <h1>Prueba piloto de HSI: Oficina de Salud Digital</h1>
+        <p class="subtitulo">Proyecto académico · Hospital 7 (General Rodríguez)</p>
+    </header>
 
-<main>
+    <main>
 
-    <section>
-        <h2>Descripción del proyecto</h2>
-        <p>
-            En el marco de la Tecnicatura en Informática Aplicada a la Salud, se simuló la creación e institucionalización de una Oficina de Salud Digital en el entorno de prueba del <strong>Hospital 7 – General Rodríguez</strong>.
-        </p>
-        <p>
-            La propuesta se basó en la experiencia real desarrollada durante las prácticas en el sector de Guardia del hospital Vicente López y Planes, donde se observó que la dispensación de medicamentos para pacientes con Infecciones Respiratorias Agudas Bajas (IRAB) se realizaba de forma manual. Para resolver las demoras y la falta de trazabilidad, se diseñó e implementó la configuración del módulo de control de stock y dispensación en el Sistema de Información en Salud (HSI).
-        </p>
-    </section>
-
-    <section>
-        <h2>Equipo de la Oficina de Salud Digital</h2>
-        <ul class="lista-equipo">
-            <li><strong>Noelia Duarte:</strong> Líder de proyecto (coordinación general y seguimiento).</li>
-            <li><strong>Braian Gauna:</strong> Referente técnico (soporte a usuarios y resolución de dudas técnicas sobre el sistema).</li>
-            <li><strong>Tatiana Coronel:</strong> Gestión de ABM de usuarios y contraseñas.</li>
-            <li><strong>Patricia Leiva:</strong> Relevamiento de errores y nuevos requerimientos.</li>
-        </ul>
-
-        <p class="referentes">
-            <strong>Referentes del sector Guardia:</strong> Lucas Díaz (Técnico Administrativo), Farmacéutico Ramírez (Farmacia), Iara Irem López Santos (Enfermería) y Paula Romero (Estadística).
-        </p>
-    </section>
-
-    <section>
-        <h2>Alcance de la implementación</h2>
-        <p>
-            La implementación del módulo de control de stock y dispensación de medicamentos se focalizó en el sector de Guardia del Hospital 7. Las prácticas configuradas abarcaron:
-        </p>
-        <ul class="lista-datos">
-            <li>Dispensación de medicamentos para pacientes con IRAB.</li>
-            <li>Control y seguimiento de stock de fármacos en la farmacia de Guardia.</li>
-            <li>Registro sistemático de entregas y administración a pacientes.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Estrategia y Prueba Piloto</h2>
-        <p>
-            Se diseñó una prueba piloto de dos semanas en la Guardia para evaluar la configuración en el HSI antes de su extensión total. Se configuraron 4 fármacos críticos de alto consumo en el tratamiento de IRAB: <strong>salbutamol, budesonide, betametasona e ibuprofeno</strong>.
-        </p>
-        <p>
-            Durante la prueba, el referente técnico brindó soporte presencial continuo en la Guardia para asistir a médicos, enfermeros, farmacéuticos y administrativos, permitiendo ajustar circuitos de trabajo y corregir desviaciones en tiempo real.
-        </p>
-    </section>
-
-    <section>
-        <h2>Documentación del proyecto</h2>
-        <p>
-            El documento completo del plan de implementación y configuración se encuentra disponible para su consulta y descarga en formato PDF.
-        </p>
-        <a href="informes/prueba-piloto-hsi.pdf" class="archivo" target="_blank" rel="noopener noreferrer">
-            Ver documento completo (PDF)
+        <!-- VOLVER -->
+        <a href="index.html" class="volver">
+            ← Volver al portfolio
         </a>
-    </section>
 
-</main>
+        <!-- DESCRIPCIÓN -->
+        <section>
+            <h2>Descripción del proyecto</h2>
+            <p>
+                En el marco de la Tecnicatura en Informática Aplicada a la Salud, se simuló la creación e institucionalización de una Oficina de Salud Digital en el entorno de prueba del <strong>Hospital 7 – General Rodríguez</strong>.
+            </p>
+            <p>
+                La propuesta se basó en la experiencia real desarrollada durante las prácticas en el sector de Guardia del hospital Vicente López y Planes, donde se observó que la dispensación de medicamentos para pacientes con Infecciones Respiratorias Agudas Bajas (IRAB) se realizaba de forma manual. Para resolver las demoras y la falta de trazabilidad, se diseñó e implementó la configuración del módulo de control de stock y dispensación en el Sistema de Información en Salud (HSI).
+            </p>
+        </section>
+
+        <!-- EQUIPO -->
+        <section>
+            <h2>Equipo de la Oficina de Salud Digital</h2>
+
+            <div class="dato">
+                <strong>Noelia Duarte:</strong> Líder de proyecto (coordinación general y seguimiento).
+            </div>
+
+            <div class="dato">
+                <strong>Braian Gauna:</strong> Referente técnico (soporte a usuarios y resolución de dudas técnicas sobre el sistema).
+            </div>
+
+            <div class="dato">
+                <strong>Tatiana Coronel:</strong> Gestión de ABM de usuarios y contraseñas.
+            </div>
+
+            <div class="dato">
+                <strong>Patricia Leiva:</strong> Relevamiento de errores y nuevos requerimientos.
+            </div>
+
+            <div class="referentes-card">
+                <strong>Referentes del sector Guardia:</strong> Lucas Díaz (Técnico Administrativo), Farmacéutico Ramírez (Farmacia), Iara Irem López Santos (Enfermería) y Paula Romero (Estadística).
+            </div>
+        </section>
+
+        <!-- ALCANCE -->
+        <section>
+            <h2>Alcance de la implementación</h2>
+            <p>
+                La implementación del módulo de control de stock y dispensación de medicamentos se focalizó en el sector de Guardia del Hospital 7. Las prácticas configuradas abarcaron:
+            </p>
+
+            <div class="dato">
+                Dispensación de medicamentos para pacientes con IRAB.
+            </div>
+
+            <div class="dato">
+                Control y seguimiento de stock de fármacos en la farmacia de Guardia.
+            </div>
+
+            <div class="dato">
+                Registro sistemático de entregas y administración a pacientes.
+            </div>
+        </section>
+
+        <!-- ESTRATEGIA -->
+        <section>
+            <h2>Estrategia y Prueba Piloto</h2>
+            <p>
+                Se diseñó una prueba piloto de dos semanas en la Guardia para evaluar la configuración en el HSI antes de su extensión total. Se configuraron 4 fármacos críticos de alto consumo en el tratamiento de IRAB: <strong>salbutamol, budesonide, betametasona e ibuprofeno</strong>.
+            </p>
+            <p>
+                Durante la prueba, el referente técnico brindó soporte presencial continuo en la Guardia para asistir a médicos, enfermeros, farmacéuticos y administrativos, permitiendo ajustar circuitos de trabajo y corregir desviaciones en tiempo real.
+            </p>
+        </section>
+
+        <!-- DOCUMENTACIÓN -->
+        <section>
+            <h2>Documentación del proyecto</h2>
+            <p>
+                El documento completo del plan de implementación y configuración se encuentra disponible para su consulta y descarga en formato PDF.
+            </p>
+            <div class="contenedor-botones">
+                <a href="informes/prueba-piloto-hsi.pdf" class="archivo" target="_blank">
+                    Ver documento completo (PDF) ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© Portfolio Profesional — Braian Nicolás Gauna</p>
+    </footer>
 
 </body>
+
 </html>
