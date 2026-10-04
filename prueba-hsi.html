@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Prueba piloto de HSI | Braian Gauna</title>
-
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f7f9;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
@@ -20,6 +23,17 @@
             color: white;
             padding: 40px 20px;
             text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         main {
@@ -33,32 +47,65 @@
             padding: 25px;
             margin-bottom: 25px;
             border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         h2 {
             color: #1f4e79;
+            margin-top: 0;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 10px;
         }
 
-        .dato {
-            margin-bottom: 15px;
+        .lista-datos, .lista-equipo {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+
+        .lista-datos li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .lista-datos li::before {
+            content: "•";
+            color: #1f4e79;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .lista-equipo li {
+            margin-bottom: 12px;
+        }
+
+        .referentes {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
         }
 
         .archivo {
             display: inline-block;
-            padding: 12px 18px;
+            padding: 12px 20px;
             background-color: #1f4e79;
             color: white;
             text-decoration: none;
             border-radius: 6px;
-            margin-top: 10px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
         }
 
-        .archivo:hover {
-            opacity: 0.9;
+        .archivo:hover, .archivo:focus {
+            background-color: #163857;
+            outline: none;
         }
     </style>
 </head>
-
 <body>
 
 <header>
@@ -70,11 +117,9 @@
 
     <section>
         <h2>Descripción del proyecto</h2>
-
         <p>
             En el marco de la Tecnicatura en Informática Aplicada a la Salud, se simuló la creación e institucionalización de una Oficina de Salud Digital en el entorno de prueba del <strong>Hospital 7 – General Rodríguez</strong>.
         </p>
-
         <p>
             La propuesta se basó en la experiencia real desarrollada durante las prácticas en el sector de Guardia del hospital Vicente López y Planes, donde se observó que la dispensación de medicamentos para pacientes con Infecciones Respiratorias Agudas Bajas (IRAB) se realizaba de forma manual. Para resolver las demoras y la falta de trazabilidad, se diseñó e implementó la configuración del módulo de control de stock y dispensación en el Sistema de Información en Salud (HSI).
         </p>
@@ -82,55 +127,35 @@
 
     <section>
         <h2>Equipo de la Oficina de Salud Digital</h2>
+        <ul class="lista-equipo">
+            <li><strong>Noelia Duarte:</strong> Líder de proyecto (coordinación general y seguimiento).</li>
+            <li><strong>Braian Gauna:</strong> Referente técnico (soporte a usuarios y resolución de dudas técnicas sobre el sistema).</li>
+            <li><strong>Tatiana Coronel:</strong> Gestión de ABM de usuarios y contraseñas.</li>
+            <li><strong>Patricia Leiva:</strong> Relevamiento de errores y nuevos requerimientos.</li>
+        </ul>
 
-        <div class="dato">
-            <strong>Noelia Duarte:</strong> Líder de proyecto (coordinación general y seguimiento).
-        </div>
-
-        <div class="dato">
-            <strong>Braian Gauna:</strong> Referente técnico (soporte a usuarios y resolución de dudas técnicas sobre el sistema).
-        </div>
-
-        <div class="dato">
-            <strong>Tatiana Coronel:</strong> Gestión de ABM de usuarios y contraseñas.
-        </div>
-
-        <div class="dato">
-            <strong>Patricia Leiva:</strong> Relevamiento de errores y nuevos requerimientos.
-        </div>
-
-        <p style="margin-top: 15px;">
+        <p class="referentes">
             <strong>Referentes del sector Guardia:</strong> Lucas Díaz (Técnico Administrativo), Farmacéutico Ramírez (Farmacia), Iara Irem López Santos (Enfermería) y Paula Romero (Estadística).
         </p>
     </section>
 
     <section>
         <h2>Alcance de la implementación</h2>
-
         <p>
             La implementación del módulo de control de stock y dispensación de medicamentos se focalizó en el sector de Guardia del Hospital 7. Las prácticas configuradas abarcaron:
         </p>
-
-        <div class="dato">
-            • Dispensación de medicamentos para pacientes con IRAB.
-        </div>
-
-        <div class="dato">
-            • Control y seguimiento de stock de fármacos en la farmacia de Guardia.
-        </div>
-
-        <div class="dato">
-            • Registro sistemático de entregas y administración a pacientes.
-        </div>
+        <ul class="lista-datos">
+            <li>Dispensación de medicamentos para pacientes con IRAB.</li>
+            <li>Control y seguimiento de stock de fármacos en la farmacia de Guardia.</li>
+            <li>Registro sistemático de entregas y administración a pacientes.</li>
+        </ul>
     </section>
 
     <section>
         <h2>Estrategia y Prueba Piloto</h2>
-
         <p>
             Se diseñó una prueba piloto de dos semanas en la Guardia para evaluar la configuración en el HSI antes de su extensión total. Se configuraron 4 fármacos críticos de alto consumo en el tratamiento de IRAB: <strong>salbutamol, budesonide, betametasona e ibuprofeno</strong>.
         </p>
-
         <p>
             Durante la prueba, el referente técnico brindó soporte presencial continuo en la Guardia para asistir a médicos, enfermeros, farmacéuticos y administrativos, permitiendo ajustar circuitos de trabajo y corregir desviaciones en tiempo real.
         </p>
@@ -138,12 +163,10 @@
 
     <section>
         <h2>Documentación del proyecto</h2>
-
         <p>
             El documento completo del plan de implementación y configuración se encuentra disponible para su consulta y descarga en formato PDF.
         </p>
-
-        <a href="informes/prueba-piloto-hsi.pdf" class="archivo" target="_blank">
+        <a href="informes/prueba-piloto-hsi.pdf" class="archivo" target="_blank" rel="noopener noreferrer">
             Ver documento completo (PDF)
         </a>
     </section>
