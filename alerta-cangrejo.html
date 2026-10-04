@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Alerta Cangrejo | Portfolio</title>
 
-    <style>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <style>
         * {
             box-sizing: border-box;
             margin: 0;
@@ -16,349 +19,373 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #222;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
             line-height: 1.6;
         }
 
+        /* BANNER SUPERIOR DE IMPACTO */
         header {
-            background-color: #123b5d;
+            background: radial-gradient(circle at top left, #1e293b, #0f172a);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        header .badge-categoria {
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            font-size: 19px;
+        header .subtitulo {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            font-weight: 500;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
+        /* CONTENEDOR PRINCIPAL FLOTANTE */
         main {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 980px;
+            margin: -35px auto 60px;
             padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 25px;
+        /* BOTÓN VOLVER */
+        .volver {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 22px;
+            background: #ffffff;
+            padding: 10px 18px;
             border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .volver:hover {
+            background: #e0f2fe;
+            transform: translateX(-3px);
+        }
+
+        /* TARJETAS CONTENEDORAS */
+        section {
+            background-color: #ffffff;
+            padding: 35px 40px;
+            margin-bottom: 28px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 25px 20px;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
         }
 
         h2 {
-            color: #123b5d;
-            margin-bottom: 18px;
-            font-size: 27px;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 22px;
+            background: linear-gradient(180deg, #0284c7, #06b6d4);
+            border-radius: 10px;
         }
 
         h3 {
-            color: #333;
+            color: #0369a1;
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
         p {
+            color: #475569;
             margin-bottom: 12px;
+            font-size: 1rem;
         }
 
-        ul {
-            padding-left: 25px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .volver {
-            display: inline-block;
-            margin-bottom: 25px;
-            color: #123b5d;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .volver:hover {
-            text-decoration: underline;
-        }
-
-       .dato {
-            margin-bottom: 15px;
-        }
-
-        .galeria {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .galeria img {
-            width: 100%;
-            max-width: 350px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-        }
-        
-
-        .dato strong {
-            color: #123b5d;
-        }
-
-        .archivo {
-            display: inline-block;
-            background-color: #123b5d;
-            color: white;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 7px;
+        /* LISTA ESTILIZADA DE HERRAMIENTAS */
+        ul.herramientas {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 10px;
         }
 
-        .archivo:hover {
-            background-color: #0d2d46;
+        ul.herramientas li {
+            background: #f0f9ff;
+            color: #0369a1;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #e0f2fe;
         }
 
+        /* GALERÍA DE CAPTURAS DE PANTALLA */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .galeria-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .galeria-item h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* BOTONES DE ARCHIVOS / DESCARGA */
+        .contenedor-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .archivo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+            transition: all 0.25s ease;
+        }
+
+        .archivo:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* FOOTER */
         footer {
             text-align: center;
-            padding: 30px;
-            color: #666;
+            padding: 30px 20px 50px;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
     <!-- ENCABEZADO -->
-
     <header>
-
+        <span class="badge-categoria">Desarrollo de Aplicaciones</span>
         <h1>Alerta Cangrejo</h1>
-
-        <p>
-            Aplicación para la prevención y concientización sobre el cáncer
-        </p>
-
+        <p class="subtitulo">Aplicación móvil para la prevención y concientización sobre el cáncer</p>
     </header>
-
-
 
     <main>
 
-
         <!-- VOLVER -->
-
         <a href="index.html" class="volver">
             ← Volver al portfolio
         </a>
 
-
-
         <!-- DESCRIPCIÓN -->
-
         <section>
-
             <h2>Descripción del proyecto</h2>
-
             <p>
-                Alerta Cangrejo es una aplicación desarrollada como proyecto
-                académico grupal, orientada a la prevención y concientización
-                sobre el cáncer.
+                Alerta Cangrejo es una aplicación desarrollada como proyecto académico grupal, orientada a la prevención y concientización sobre el cáncer.
             </p>
-
             <p>
-                La aplicación permite consultar información relacionada con
-                síntomas y llevar un registro para facilitar el seguimiento
-                de determinadas situaciones.
+                La aplicación permite consultar información relacionada con síntomas y llevar un registro personalizado para facilitar el seguimiento de determinadas situaciones de salud.
             </p>
-
         </section>
-
-
 
         <!-- PROBLEMA -->
-
         <section>
-
             <h2>Problema abordado</h2>
-
             <p>
-                El proyecto busca brindar una herramienta sencilla que ayude
-                a las personas a prestar atención a determinados síntomas
-                y cambios en su salud.
+                El proyecto busca brindar una herramienta accesible e intuitiva que ayude a las personas a prestar atención a determinados síntomas y cambios en su salud, fomentando el autocuidado y la consulta médica temprana.
             </p>
-
         </section>
-
-
 
         <!-- OBJETIVO -->
-
         <section>
-
             <h2>Objetivo</h2>
-
             <p>
-                Desarrollar una aplicación accesible que permita registrar
-                síntomas y consultar información relacionada con señales
-                de alerta, contribuyendo a la concientización y detección
-                temprana.
+                Desarrollar una aplicación accesible que permita registrar síntomas y consultar información relacionada con señales de alerta, contribuyendo a la concientización y detección temprana de patologías oncológicas.
             </p>
-
         </section>
-
-
 
         <!-- HERRAMIENTAS -->
-
         <section>
-
             <h2>Herramientas utilizadas</h2>
-
-            <ul>
-
+            <ul class="herramientas">
                 <li>MIT App Inventor</li>
-
                 <li>Programación mediante bloques</li>
-
-                <li>TinyDB para almacenamiento de información</li>
-
+                <li>TinyDB (Almacenamiento Local)</li>
             </ul>
-
-        <section>
-
-    <h2>Mi participación</h2>
-
-    <p>
-        Mi principal participación en el proyecto fue el desarrollo del
-        software. Me encargué de armar la aplicación utilizando MIT App
-        Inventor y de implementar sus diferentes funcionalidades.
-    </p>
-
-    <p>
-        Trabajé en la construcción de las distintas pantallas de la
-        aplicación, la organización de la navegación y la programación
-        mediante bloques para que las funciones respondieran según lo
-        planteado en el proyecto.
-    </p>
-
-    <p>
-        También participé en las pruebas de funcionamiento de la aplicación,
-        verificando que las diferentes funciones se ejecutaran correctamente
-        y realizando ajustes cuando fue necesario.
-    </p>
-
-</section>
-
-        <!-- TRABAJO EN EQUIPO -->
-
-        <section>
-
-            <h2>Trabajo en equipo</h2>
-
-            <p>
-                El proyecto fue realizado de manera grupal, trabajando en
-                conjunto para analizar la problemática, definir las
-                características de la aplicación y desarrollar la solución.
-            </p>
-
         </section>
 
+        <!-- MI PARTICIPACIÓN -->
+        <section>
+            <h2>Mi participación</h2>
+            <p>
+                Mi principal contribución en el proyecto fue el desarrollo del software. Me encargué de estructurar la aplicación utilizando MIT App Inventor e implementar sus principales funcionalidades.
+            </p>
+            <p>
+                Diseñé e implementé la interfaz de las distintas pantallas, organicé la navegación y programé la lógica mediante bloques para que cada función respondiera según las necesidades requeridas por la aplicación.
+            </p>
+            <p>
+                Asimismo, llevé a cabo las pruebas de funcionamiento del sistema, identificando posibles fallos, optimizando la persistencia de datos con TinyDB y aplicando correcciones para asegurar una navegación fluida.
+            </p>
+        </section>
 
+        <!-- TRABAJO EN EQUIPO -->
+        <section>
+            <h2>Trabajo en equipo</h2>
+            <p>
+                El proyecto se desarrolló de manera grupal y colaborativa, participando conjuntamente en el análisis del problema, la definición del alcance funcional de la aplicación y la validación final del prototipo.
+            </p>
+        </section>
 
-      <!-- IMÁGENES -->
+        <!-- IMÁGENES -->
+        <section>
+            <h2>Imágenes del proyecto</h2>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <h3>Pantalla principal</h3>
+                    <img src="imagenes/alerta-cangrejo/PMENU.jpg" alt="Pantalla principal de Alerta Cangrejo">
+                </div>
 
-<section>
+                <div class="galeria-item">
+                    <h3>Mis síntomas</h3>
+                    <img src="imagenes/alerta-cangrejo/misintoma.jpg" alt="Pantalla Mis síntomas de Alerta Cangrejo">
+                </div>
 
-    <h2>Imágenes del proyecto</h2>
+                <div class="galeria-item">
+                    <h3>Perfil</h3>
+                    <img src="imagenes/alerta-cangrejo/pperfil.JPG" alt="Pantalla de perfil de Alerta Cangrejo">
+                </div>
 
-    <div class="galeria">
+                <div class="galeria-item">
+                    <h3>Recordatorio</h3>
+                    <img src="imagenes/alerta-cangrejo/recordame.jpg" alt="Pantalla Recordame de Alerta Cangrejo">
+                </div>
+            </div>
+        </section>
 
-        <div>
-            <h3>Pantalla principal</h3>
-
-            <img src="imagenes/alerta-cangrejo/PMENU.jpg"
-                 alt="Pantalla principal de Alerta Cangrejo">
-        </div>
-
-        <div>
-            <h3>Mis síntomas</h3>
-
-            <img src="imagenes/alerta-cangrejo/misintoma.jpg"
-                 alt="Pantalla Mis síntomas de Alerta Cangrejo">
-        </div>
-
-        <div>
-            <h3>Perfil</h3>
-
-            <img src="imagenes/alerta-cangrejo/pperfil.JPG"
-                 alt="Pantalla de perfil de Alerta Cangrejo">
-        </div>
-
-        <div>
-            <h3>Recordatorio</h3>
-
-            <img src="imagenes/alerta-cangrejo/recordame.jpg"
-                 alt="Pantalla Recordame de Alerta Cangrejo">
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-        <!-- ARCHIVO AIA -->
-
-      <section>
-
-    <h2>Archivos del proyecto</h2>
-
-    <p>
-        El proyecto cuenta con su archivo fuente de MIT App Inventor
-        en formato .AIA y con un manual de uso del proyecto.
-    </p>
-
-    <a href="ALERTACANGREJO.aia"
-       class="archivo"
-       download>
-        Descargar proyecto (.AIA)
-    </a>
-
-<a href="manuales/alerta-cangrejo-manual.pdf"
-   class="archivo"
-   download>
-    Descargar manual del proyecto (PDF)
-</a>
-</section>
+        <!-- ARCHIVOS Y DOCUMENTACIÓN -->
+        <section>
+            <h2>Archivos del proyecto</h2>
+            <p>
+                El proyecto cuenta con su archivo fuente de MIT App Inventor en formato .AIA para su edición y con el manual explicativo de uso.
+            </p>
+            <div class="contenedor-botones">
+                <a href="ALERTACANGREJO.aia" class="archivo" download>
+                    Descargar proyecto (.AIA)
+                </a>
+                <a href="manuales/alerta-cangrejo-manual.pdf" class="archivo" download>
+                    Descargar manual del proyecto (PDF)
+                </a>
+            </div>
+        </section>
 
     </main>
 
-
-
-    <!-- PIE DE PÁGINA -->
-
+    <!-- FOOTER -->
     <footer>
-
-        <p>
-            Portfolio académico — Braian Nicolás Gauna
-        </p>
-
+        <p>© Portfolio Profesional — Braian Nicolás Gauna</p>
     </footer>
-
 
 </body>
 
