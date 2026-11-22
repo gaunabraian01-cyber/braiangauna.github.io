@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitud de Requerimiento: HSI – Intranet | Braian Nicolás Gauna</title>
+  <style>
+    :root {
+      --bg-page: #f4f7fb;
+      --bg-card: #ffffff;
+      --hero-bg: #0f2942;
+      --hero-badge: #17436b;
+      --accent: #0ea5e9;
+      --text-main: #1e293b;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --btn-bg: #0f172a;
+      --btn-hover: #1e293b;
+      --tag-bg: #f1f5f9;
+      --radius: 12px;
+      --shadow: 0 4px 16px rgba(15, 41, 66, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* Encabezado oscuro */
+    .hero {
+      background: linear-gradient(135deg, var(--hero-bg) 0%, #163a5f 100%);
+      color: #ffffff;
+      padding: 48px 20px 64px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--hero-badge);
+      color: #e0f2fe;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 880px;
+      margin: -32px auto 48px;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #ffffff;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .back-link:hover {
+      background-color: #f8fafc;
+      transform: translateY(-1px);
+    }
+
+    /* Tarjetas */
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--hero-bg);
+      margin-bottom: 14px;
+    }
+
+    .card-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      border-radius: 4px;
+      background-color: var(--accent);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-list {
+      margin: 10px 0 14px 20px;
+      color: var(--text-muted);
+    }
+
+    .detail-list li {
+      margin-bottom: 6px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      background-color: var(--tag-bg);
+      color: var(--hero-bg);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+
+    /* Recursos / Documentación */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .resource-box {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      background-color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .resource-box h3 {
+      font-size: 1rem;
+      color: var(--hero-bg);
+      margin-bottom: 6px;
+    }
+
+    .resource-box p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: var(--btn-bg);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: background-color 0.15s ease;
+      width: fit-content;
+    }
+
+    .btn:hover {
+      background-color: var(--btn-hover);
+    }
+
+    .media-block {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .media-block h3 {
+      font-size: 1.02rem;
+      color: var(--hero-bg);
+      margin-bottom: 6px;
+    }
+
+    .poster-preview {
+      width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: #ffffff;
+      margin-top: 12px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-top: 12px;
+      background-color: #0f172a;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 24px 16px 40px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="badge">Interoperabilidad y Sistemas de Salud</span>
+      <h1>Solicitud de Requerimiento: HSI – Intranet</h1>
+      <p>Implementación de Farmacia de Guardia – Hospital Vicente López y Planes</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">← Volver al portfolio</a>
+
+    <!-- 1. Descripción del proyecto -->
+    <section class="card">
+      <h2 class="card-title">Descripción del proyecto</h2>
+      <p>
+        Proyecto académico desarrollado en el marco de la Tecnicatura Universitaria en Informática Aplicada a la Salud de la Universidad Nacional de José C. Paz (UNPAZ), centrado en la elaboración de una Solicitud de Requerimiento técnico-funcional para la interoperabilidad entre los sistemas HSI e Intranet.
+      </p>
+      <p>
+        La propuesta se orienta a acompañar la implementación de una Farmacia de Guardia en el Hospital Interzonal General de Agudos "Vicente López y Planes" (General Rodríguez) para cubrir la dispensación y reposición de medicamentos, con especial atención en el turno vespertino.
+      </p>
+      <p>
+        En lugar de reemplazar las plataformas actuales o realizar una transformación tecnológica costosa desde cero, el planteo busca articular progresivamente los sistemas existentes, aprovechar la infraestructura y los recursos institucionales disponibles, y sumar trazabilidad, registro nominalizado y consulta de movimientos.
+      </p>
+      <div class="tags">
+        <span class="tag">HSI</span>
+        <span class="tag">Intranet</span>
+        <span class="tag">Interoperabilidad</span>
+        <span class="tag">Ingeniería de Requerimientos</span>
+        <span class="tag">Modelado UML</span>
+        <span class="tag">Salud Digital</span>
+      </div>
+    </section>
+
+    <!-- 2. Problemática analizada -->
+    <section class="card">
+      <h2 class="card-title">Problemática analizada</h2>
+      <p>
+        A partir del diagnóstico institucional, observaciones en Guardia y Farmacia, pruebas en entorno HSI y entrevistas realizadas durante las prácticas, se identificó la falta de comunicación automática entre la Historia de Salud Integrada (HSI), empleada para el registro de atención y prescripción médica, y la Intranet, utilizada por Farmacia para administrar el stock y las entregas.
+      </p>
+      <ul class="detail-list">
+        <li>Prescripciones registradas en HSI que requerían transcripción a papel o permanecían en estado "activa" incluso después de entregarse el medicamento.</li>
+        <li>Duplicación de registros, controles manuales adicionales y dificultades para mantener la trazabilidad y el egreso nominalizado vinculado al paciente y la atención.</li>
+        <li>Limitaciones para consultar consumos reales y gestionar la reposición de stock en Guardia con datos integrados y oportunos.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Objetivo y alcance técnico -->
+    <section class="card">
+      <h2 class="card-title">Objetivo y alcance técnico</h2>
+      <p>
+        El objetivo principal fue mejorar el circuito de dispensación y reposición de medicamentos en Guardia mediante la articulación progresiva entre HSI e Intranet, favoreciendo el registro nominalizado, la trazabilidad y la disponibilidad oportuna de información con los recursos existentes.
+      </p>
+      <ul class="detail-list">
+        <li><strong>Datos mínimos y trazabilidad:</strong> definición de campos clave (paciente/usuario, profesional prescriptor, medicamento, presentación/código, cantidad dispensada, fecha y hora, servicio, stock disponible y estado de reposición), manteniendo separado el stock de Guardia del de Farmacia Central.</li>
+        <li><strong>Roles, historias de usuario y requerimientos:</strong> especificación de actores directos e indirectos (admisión, enfermería, médicos, farmacéuticos, técnicos de farmacia, farmacia central, sistemas, SADOFE y dirección), historias de usuario, requerimientos funcionales (RF1–RF7) y no funcionales (RNF1–RNF4), y casos de uso.</li>
+        <li><strong>Riesgos, contingencia e implementación:</strong> matriz de riesgos, alternativas provisorias ante contingencias y cronograma de implementación en 8 fases (16 semanas) con prueba piloto e indicadores de evaluación.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Trabajo en equipo -->
+    <section class="card">
+      <h2 class="card-title">Trabajo en equipo</h2>
+      <p>
+        El proyecto fue realizado de manera grupal junto a Tatiana Coronel, Noelia Duarte y Patricia Leiva, articulando el relevamiento del circuito asistencial y farmacéutico, las entrevistas a referentes del hospital y la redacción integral de la solicitud de requerimiento.
+      </p>
+      <p>
+        El trabajo conjunto permitió contrastar el circuito actual con el circuito propuesto, evaluar escenarios de riesgo operativos y de seguridad, y proyectar una implementación progresiva acorde a la realidad institucional.
+      </p>
+    </section>
+
+    <!-- 5. Mi participación -->
+    <section class="card">
+      <h2 class="card-title">Mi participación</h2>
+      <p>
+        Participé en el análisis del circuito de dispensación y reposición en Guardia, la identificación de brechas de interoperabilidad entre HSI e Intranet y la definición de los requerimientos, flujos de trabajo y criterios de trazabilidad y nominalización.
+      </p>
+      <p>
+        Asimismo, colaboré en la estructuración de la documentación técnica, el modelado de procesos y la planificación de las fases de implementación, prueba piloto y seguimiento mediante indicadores.
+      </p>
+    </section>
+
+    <!-- 6. Documentación y recursos -->
+    <section class="card">
+      <h2 class="card-title">Documentación y recursos del proyecto</h2>
+      <p>
+        Accedé al informe completo en PDF, al folleto informativo, al póster visual y a la presentación audiovisual del proyecto.
+      </p>
+
+      <div class="resources-grid">
+        <div class="resource-box">
+          <div>
+            <h3>Informe técnico (PDF)</h3>
+            <p>Solicitud de Requerimiento completa con diagnóstico, requerimientos RF/RNF, casos de uso, riesgos y plan de 16 semanas.</p>
+          </div>
+          <a href="assets/hsi-intranet/Proyecto%20final.pdf" target="_blank" rel="noopener noreferrer" class="btn">
+            Ver informe completo (PDF) ↗
+          </a>
+        </div>
+
+        <div class="resource-box">
+          <div>
+            <h3>Folleto informativo (PDF)</h3>
+            <p>Material de síntesis diseñado para comunicar de forma clara el propósito, el circuito propuesto y los beneficios esperados.</p>
+          </div>
+          <a href="assets/hsi-intranet/Folleto.pdf" target="_blank" rel="noopener noreferrer" class="btn">
+            Ver folleto (PDF) ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="media-block">
+        <h3>Banner / Póster del proyecto</h3>
+        <p>
+          Síntesis gráfica del proyecto con el diagnóstico en Guardia, la integración progresiva entre HSI e Intranet y el impacto en trazabilidad y control de stock.
+        </p>
+        <img src="assets/hsi-intranet/POSTER.png" alt="Póster del proyecto Solicitud de Requerimiento HSI - Intranet" class="poster-preview" />
+      </div>
+
+      <div class="media-block">
+        <h3>Video del proyecto</h3>
+        <p>
+          Presentación audiovisual que recorre el funcionamiento esperado del circuito y resume el valor de la propuesta.
+        </p>
+        <div class="video-wrapper">
+          <!-- Reemplazá TU_ID_DE_VIDEO por el ID de tu video de YouTube -->
+          <iframe
+            src="https://www.youtube.com/embed/TU_ID_DE_VIDEO"
+            title="Video del proyecto Solicitud de Requerimiento HSI - Intranet"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © Portafolio Profesional — Braian Nicolás Gauna
+  </footer>
+
+</body>
+</html>
